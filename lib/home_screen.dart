@@ -92,28 +92,6 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Center(
                 child: Column(
                     children: <Widget>[
-                      Card(
-                        elevation: 10,
-                        color: Colors.green.shade700, 
-                        child: SizedBox(
-                          width: 350,
-                          height:  (MediaQuery.of(context).size.height * 7 / 100),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                df.format(_selectedDate),
-                                style: const TextStyle(color: Colors.white, fontSize: 25),
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.date_range, size: 30, color: Colors.white),
-                                onPressed: () => _getData(context),
-                              )
-                            ]
-                          ),
-                        ),
-                      ),
-                      const Padding(padding: EdgeInsets.only(top: 20)) ,
                       GestureDetector(
                         onHorizontalDragEnd: (dragDetail) {
                         if (goPrecSucc) {
@@ -125,7 +103,30 @@ class _HomeScreenState extends State<HomeScreen> {
                             }
                           }
                         },
-                        child: InteractiveViewer(
+                        child: Card(
+                          elevation: 10,
+                          color: Colors.green.shade700, 
+                          child: SizedBox(
+                            width: 350,
+                            height:  (MediaQuery.of(context).size.height * 7 / 100),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  df.format(_selectedDate),
+                                  style: const TextStyle(color: Colors.white, fontSize: 25),
+                                ),
+                                IconButton(
+                                  icon: const Icon(Icons.date_range, size: 30, color: Colors.white),
+                                  onPressed: () => _getData(context),
+                                )
+                              ]
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 20)) ,
+                      InteractiveViewer(
                           panEnabled: true,
                           minScale: 1,
                           maxScale: 2,
@@ -141,7 +142,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                      )
                     ],
                   ),
               ),
